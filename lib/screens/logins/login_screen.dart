@@ -12,7 +12,7 @@ class LoginScreen extends StatelessWidget {
           Expanded(
             flex: 2,
             child: Container(
-              color: Colors.blueAccent,
+              color: Colors.red,
             ),
           ),
           Expanded(
