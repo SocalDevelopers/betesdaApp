@@ -6,10 +6,11 @@ import 'package:betesda_app/screens/components/reusable_button.dart';
 import 'package:betesda_app/screens/home/home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
+  static final String id = 'LoginScreen';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.red,
       body: Stack(
         children: <Widget>[
           imageBg,
@@ -21,26 +22,48 @@ class LoginScreen extends StatelessWidget {
                   child: Container(),
                   flex: 2,
                 ),
-                Container(
-                  child: Text(
-                    'Ministerios Betesda',
-                    style: kShadowText,
-                  ),
+                Image.network(
+                  'http://betesda.org/images/main-logo.png',
+                  scale: .8,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  'Ministerios Betesda',
+                  style: kShadowText,
                 ),
                 SizedBox(
                   height: 40,
                 ),
                 CustomButton(
+                  shadowColor: Color(0xff334092),
                   icon: Icon(
                     FontAwesomeIcons.facebook,
                     color: Colors.white,
                   ),
                   buttonText: 'Sign in with FaceBook',
                   onPressed: () {
+                    Navigator.pushNamed(context, Home.id);
+                  },
+                  color: Color(0xff334092).withOpacity(.7),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                CustomButton(
+                  shadowColor: Colors.blueGrey,
+                  textColor: Colors.blueGrey,
+                  icon: Icon(
+                    FontAwesomeIcons.synagogue,
+                    color: Colors.blueGrey,
+                  ),
+                  buttonText: 'Entrar como invitado',
+                  onPressed: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => Home()));
                   },
-                  color: Color(0xff334092).withOpacity(.7),
+                  color: Colors.white.withOpacity(.7),
                 ),
                 Expanded(
                   child: Container(),

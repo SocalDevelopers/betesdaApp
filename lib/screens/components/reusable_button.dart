@@ -6,22 +6,26 @@ class CustomButton extends StatelessWidget {
       {@required this.color,
       @required this.onPressed,
       @required this.buttonText,
-      this.icon});
+      this.icon,
+      this.textColor,
+      this.shadowColor});
 
   final Color color;
   final Function onPressed;
   final String buttonText;
   final Icon icon;
+  final Color textColor;
+  final Color shadowColor;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: 5, bottom: 5),
       child: Material(
-        elevation: 20,
-        shadowColor: Colors.blueAccent,
+        elevation: 10,
+        shadowColor: shadowColor,
         color: color,
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(15),
         child: FlatButton(
           onPressed: onPressed,
           child: Row(
@@ -33,7 +37,7 @@ class CustomButton extends StatelessWidget {
               ),
               Text(
                 buttonText,
-                style: kButtonText,
+                style: kButtonText.copyWith(color: textColor),
               )
             ],
           ),
